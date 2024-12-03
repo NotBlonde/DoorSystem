@@ -1,0 +1,9 @@
+{
+    "makefile.launchConfigurations": [
+        {
+            "cwd": "c:\\Users\\Leahb\\_Dev\\DoorSystem",
+            "binaryPath": "c:\\Users\\Leahb\\_Dev\\DoorSystem\\main.exe",
+            "binaryArgs": []
+        }
+    ]
+}
