@@ -5,7 +5,8 @@
 #include "cardholder.c"
 #include "cardholder.h"
 #include "SafeInput.h"
-
+#include <windows.h>
+#include <unistd.h>
 
 int main(){
     int choice;
@@ -35,6 +36,8 @@ int main(){
         {
         case 1:
             printf("Currently LAMP is: GREEN\n");
+            sleep(3);
+            break;
 
 
         case 2: // Adds cardholder
@@ -53,7 +56,7 @@ int main(){
 
         case 3: // List all cards
             printf("Card numbers: \t Card Names: ");
-            
+            listAllCards();
             break;
         
         default:

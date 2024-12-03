@@ -5,13 +5,13 @@
 
 
 
-void saveCardholder(const char *cardNumber, const char *cardholderName){
+void saveCardholder(const char *cardNumber, const char *cardholderName, const char *access){
     FILE *file = fopen(FILE_NAME, "a");
     if (file == NULL){
         printf("Error: unable to open file for writing\n");
         return;
     }
-    fprintf(file, "%s %s \n", cardNumber, cardholderName);
+    fprintf(file, "%s %s %s \n", cardNumber, cardholderName, access);
     fclose(file);
     printf("File successfully saved. \n");
 }
@@ -38,5 +38,26 @@ void getCardholderName(const char *cardNumber){
     if (!found) {
         printf("Error: Cardholder with number %s not found.\n", cardNumber);
     }
+    fclose(file);
+}
+
+
+void listAllCards(){
+    FILE *file = fopen(FILE_NAME, "r");
+    
+    
+    if (file == NULL){
+        printf("error\n");
+        return;
+    }
+    
+    char fileCardNumber[10], fileCardHolderName[100];
+    printf("Card Number\tCardholder Name\n ");
+    printf("---------------------------------\n");
+
+    while (fscanf(file, "%s %99[^\n]", fileCardNumber, fileCardHolderName) != EOF){
+        printf("%s\t\t%s\n", fileCardNumber, fileCardHolderName);
+    }
+
     fclose(file);
 }
